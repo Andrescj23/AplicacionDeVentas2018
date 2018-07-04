@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductoDao {
 
-    public List<Producto> findAllCategoria();
+    public List<Producto> findAllProducto();
     public Producto findProductoById(Integer id);
     public Producto findProductoByDescripcion(String descripcion);
     public void saveProducto (Producto elemento);
