@@ -1,6 +1,7 @@
 package com.aplicacionventas2018.core.sistema;
 
 import com.aplicacionventas2018.core.controller.CategoriaController;
+import com.aplicacionventas2018.core.controller.ProductoController;
 import java.io.IOException;
 import java.io.InputStream;
 import javafx.application.Application;
@@ -20,13 +21,14 @@ public class Principal extends Application {
     public void start(Stage escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
 
-        //mostrarHelloWorld();
-        mostrarCategoria();
+       //mostrarHelloWorld();
+        //mostrarCategoria();
+        mostrarProducto();
         this.escenarioPrincipal.setTitle("Sistema Ventas");
         this.escenarioPrincipal.show();
     }
 
-    public void mostrarCategoria() {
+   public void mostrarCategoria() {
         try {
             CategoriaController categoriaController = (CategoriaController) 
                     cambiarEscena("CategoriaView.fxml", 600, 400);
@@ -34,6 +36,16 @@ public class Principal extends Application {
         } catch (Exception e) {
         }
     }
+    
+    private void mostrarProducto() {
+        try {
+            ProductoController productoContoller = (ProductoController)
+                cambiarEscena("ProductosView.fxml", 600,400);
+        } catch (Exception e) {
+        }
+        
+    }
+
     
      public static void main(String[] args) {
         launch(args);
@@ -52,6 +64,7 @@ public class Principal extends Application {
         return resultado;
     }
 
+    
    
 
 }

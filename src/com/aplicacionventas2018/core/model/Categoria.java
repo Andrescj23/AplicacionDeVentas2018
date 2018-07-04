@@ -21,14 +21,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categoria")
-@NamedQueries({@NamedQuery(name = "Categoria.findAll",query = "from Categoria")})
+@NamedQueries({
+    @NamedQuery(name = "Categoria.findAll", query = "from Categoria")})
 public class Categoria implements Serializable {
 
-   
     private final IntegerProperty codigoCategoria;
     private final StringProperty descripcion;
     private Set<Producto> productos;
-    
 
     public Categoria() {
         this.codigoCategoria = new SimpleIntegerProperty();
@@ -39,10 +38,12 @@ public class Categoria implements Serializable {
         this.codigoCategoria = new SimpleIntegerProperty();
         this.descripcion = new SimpleStringProperty();
     }
+
     @Override
     public String toString() {
         return "Categoria{" + "codigoCategoria=" + codigoCategoria.get() + ", descripcion=" + descripcion.get() + '}';
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_categoria")
@@ -51,13 +52,13 @@ public class Categoria implements Serializable {
     }
 
     public void setCodigoCategoria(int codigoCategoria) {
-        this.codigoCategoria.set(codigoCategoria); 
+        this.codigoCategoria.set(codigoCategoria);
     }
-    
-    public IntegerProperty codigoCategoria(){
+
+    public IntegerProperty codigoCategoria() {
         return codigoCategoria;
     }
-    
+
     @Column(name = "descripcion")
     public String getDescripcion() {
         return descripcion.get();
@@ -66,11 +67,11 @@ public class Categoria implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion.set(descripcion);
     }
-    
-    public StringProperty descripcion(){
+
+    public StringProperty descripcion() {
         return descripcion;
     }
-            
+
     @OneToMany(mappedBy = "categoria")
     public Set<Producto> getProductos() {
         return productos;
@@ -80,7 +81,4 @@ public class Categoria implements Serializable {
         this.productos = productos;
     }
 
-    
-    
-        
-    }
+}

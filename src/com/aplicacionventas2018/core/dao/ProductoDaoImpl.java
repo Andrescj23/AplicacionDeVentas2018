@@ -7,17 +7,19 @@ import java.util.List;
 
 public class ProductoDaoImpl implements ProductoDao {
 
-    @Override
-    public List<Producto> findAllCategoria() {
-        return (List<Producto>) (Producto) Conexion.getInstancia().findAll(Producto.class);
+   
 
+    @Override
+    public List<Producto> findAllProducto() {
+        return(List<Producto>)Conexion.getInstancia().findAll(Producto.class);
     }
 
     @Override
     public Producto findProductoById(Integer id) {
-        return (Producto) Conexion.getInstancia().findById(Producto.class, id);
+        return (Producto) (List<Producto>) (Producto) Conexion.getInstancia().findAll(Producto.class);
 
     }
+    
 
     @Override
     public Producto findProductoByDescripcion(String descripcion) {
@@ -30,7 +32,7 @@ public class ProductoDaoImpl implements ProductoDao {
         }
         return null;
     }
-
+    
     @Override
     public void saveProducto(Producto elemento) {
         Conexion.getInstancia().save(elemento);
@@ -49,4 +51,6 @@ public class ProductoDaoImpl implements ProductoDao {
 
     }
 
+    
+   
 }

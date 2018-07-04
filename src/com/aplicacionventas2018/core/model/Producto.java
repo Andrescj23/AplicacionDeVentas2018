@@ -1,7 +1,11 @@
 package com.aplicacionventas2018.core.model;
 
 import java.io.Serializable;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -26,18 +30,28 @@ public class Producto implements Serializable {
     
     private final LongProperty codigoProducto;
     private StringProperty descripcion;
+    private IntegerProperty precio;
+    private DoubleProperty precioUnitario;
+    private IntegerProperty existencias;
+
     private Categoria categoria;
 
     public Producto() {
         
         this.codigoProducto = new SimpleLongProperty();
         this.descripcion = new SimpleStringProperty();
+        this.precio = new SimpleIntegerProperty();
+        this.precioUnitario = new SimpleDoubleProperty();
+        this.existencias = new SimpleIntegerProperty();
         
     }
 
-    public Producto(Long codigoProducto, String descripcion, Categoria categoria) {
+    public Producto(Long codigoProducto, String descripcion,int precio,double precionUnitario,int existencias, Categoria categoria) {
         this.codigoProducto = new SimpleLongProperty(codigoProducto);
         this.descripcion = new SimpleStringProperty (descripcion);
+        this.precio = new SimpleIntegerProperty(precio);
+        this.precioUnitario = new SimpleDoubleProperty();
+        this.existencias = new SimpleIntegerProperty();
         this.categoria = categoria;
     }
 
@@ -56,7 +70,7 @@ public class Producto implements Serializable {
     public LongProperty codigoProducto(){
         return codigoProducto;
     }
-    
+     
     @Column(name = "descripcion")
     public String getDescripcion() {
         return descripcion.get();
@@ -69,6 +83,45 @@ public class Producto implements Serializable {
     public StringProperty descripcion(){
         return descripcion;
     }
+    
+    @Column(name = "precio")
+    public int getPrecio(){
+        return precio.get();
+    }
+    
+    public void setPrecio(int precio){
+        this.precio.set(precio);
+    }
+    
+    public IntegerProperty precio(){
+        return precio;
+    }
+    
+    @Column(name = "precioUnitario")
+    public double getPrecioUnitario(){
+        return precioUnitario.get();
+    }
+    
+    public void setPrecioUnitario(double precioUnitario){
+        this.precioUnitario.set(precioUnitario);
+    }
+    
+    public DoubleProperty precioUnitario(){
+        return precioUnitario;
+    }
+    
+    @Column(name = "existencias")
+    public int getExistencias(){
+        return existencias.get();
+    }
+    
+    public void setExistencias(int existencias){
+        this.existencias.set(existencias);
+    }
+    
+   public IntegerProperty existencias(){
+       return existencias;
+   }
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "codigo_categoria", updatable = false, insertable = true, nullable = false)
