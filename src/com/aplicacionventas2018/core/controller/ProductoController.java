@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
 
+
 public class ProductoController implements Initializable{
     
     @FXML private TableView<Producto> tblProducto;
@@ -99,17 +100,49 @@ public class ProductoController implements Initializable{
     
     public void guardar(){
         
-        try {
+        try { 
             Producto producto = new Producto();
+            
+            /*for (int i = 0; i <listaCategorias.size(); i++){
+                
+                if(listaCategorias.get(i).getDescripcion().equals(choiceCategorias.getSelectionModel().getSelectedItem())){
+                    
+                  producto.setCategoria(listaCategorias.get(i));
+                    
+                }
+                
+            }*/
+            
+            for (Categoria categoria: listaCategorias)
+                
+                if (categoria.getDescripcion().equals(choiceCategorias.getSelectionModel().getSelectedItem())){
+                    
+                    producto.setCategoria(categoria);
+                            
+                }
+            
+            productoDao.saveProducto(producto);
+            listaProductos.add(producto);
+            
             Categoria categoria = new Categoria();
             
             producto.setDescripcion(txtDescripcion.getText());
-            
             producto.setPrecio(Integer.parseInt(txtPrecio.getText()));
             producto.setExistencias(Integer.parseInt(txtExistencias.getText()));
             producto.setPrecioUnitario(Double.parseDouble(txtPrecioUnitario.getText()));
-            //categoria.setChoiceCategorias(choiceCategorias.)
             
+            btnEliminar.setDisable(false);
+            btnNuevo.setDisable(false);
+            txtDescripcion.setText("");
+            txtDescripcion.setDisable(true);
+            txtExistencias.setText("");
+            txtExistencias.setDisable(true);
+            txtPrecio.setText("");
+            txtPrecioUnitario.setText("");
+            txtPrecioUnitario.setDisable(true);
+            txtPrecio.setText("");
+            txtPrecio.setDisable(true);           
+            choiceCategorias.setDisable(true);
         } catch (Exception e) {
             e.printStackTrace();
         }

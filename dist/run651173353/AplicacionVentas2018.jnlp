@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AplicacionVentas2018.jar" size="21751" download="eager" />
+    <jar href="AplicacionVentas2018.jar" size="21728" download="eager" />
     <jar href="lib/antlr-2.7.7.jar" size="445288" download="eager" />
     <jar href="lib/byte-buddy-1.8.12.jar" size="2970261" download="eager" />
     <jar href="lib/classmate-1.3.4.jar" size="65100" download="eager" />
