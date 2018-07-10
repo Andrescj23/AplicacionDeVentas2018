@@ -22,8 +22,8 @@ public class Principal extends Application {
         this.escenarioPrincipal = escenarioPrincipal;
 
        //mostrarHelloWorld();
-        mostrarCategoria();
-        //mostrarProducto();
+        //mostrarCategoria();
+        mostrarProducto();
         this.escenarioPrincipal.setTitle("Sistema Ventas");
         this.escenarioPrincipal.show();
     }

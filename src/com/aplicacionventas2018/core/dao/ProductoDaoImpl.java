@@ -22,7 +22,7 @@ public class ProductoDaoImpl implements ProductoDao {
     
 
     @Override
-    public Producto findProductoByDescripcion(String descripcion) {
+    public Producto findProductoByDescripcion(String descripcion){
         List<Producto> producto = (List<Producto>) Conexion.getInstancia().getEm()
                 .createNamedQuery("select p from Producto p where p.descripcion =: descripcion")
                 .setParameter("descripcion", descripcion)

@@ -21,8 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categoria")
-@NamedQueries({
-    @NamedQuery(name = "Categoria.findAll", query = "from Categoria")})
+@NamedQueries({@NamedQuery(name = "Categoria.findAll", query = "from Categoria")})
 public class Categoria implements Serializable {
 
     private final IntegerProperty codigoCategoria;
@@ -41,7 +40,8 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Categoria{" + "codigoCategoria=" + codigoCategoria.get() + ", descripcion=" + descripcion.get() + '}';
+        //return "Categoria{" + "codigoCategoria=" + codigoCategoria.get() + ", descripcion=" + descripcion.get() + '}';
+        return codigoCategoria.get() + " ) "+ descripcion.get();
     }
 
     @Id

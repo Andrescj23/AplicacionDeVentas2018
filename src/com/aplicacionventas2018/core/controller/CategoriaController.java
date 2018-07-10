@@ -2,24 +2,22 @@ package com.aplicacionventas2018.core.controller;
 
 import com.aplicacionventas2018.core.dao.CategoriaDaoImpl;
 import com.aplicacionventas2018.core.model.Categoria;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 public class CategoriaController implements Initializable {
+    
+    private enum ACCIONES {NUEVO,EDITAR};
     
     @FXML private TableView<Categoria> tblCategorias;
     @FXML private TableColumn<Categoria,Number> colCodigo;
@@ -28,16 +26,32 @@ public class CategoriaController implements Initializable {
     @FXML private Button btnGuardar;
     @FXML private Button btnCancelar;
     @FXML private Button btnEliminar;
+    @FXML private Button btnEditar;
     @FXML private TextField txtDescripcion;
+    
+    private ACCIONES accion;
+    private Categoria elementoSeleccionado;
+    
     private ObservableList<Categoria> listaCategorias;
     private CategoriaDaoImpl categoriaDao = new CategoriaDaoImpl();
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //categoriaDao.findAllCategoria();
-        getCategorias();
+        getCategorias();       
         enlazarDatos();
         enlazarColumnas();
     }
+    
+    public void seleccionarElemento(){
+        
+      if(tblCategorias.getSelectionModel().getSelectedItem() != null){
+            elementoSeleccionado = tblCategorias.getSelectionModel().getSelectedItem();
+            txtDescripcion.setText(elementoSeleccionado.getDescripcion());
+        }    
+        
+    }
+    
     public void getCategorias(){
         listaCategorias = FXCollections.observableArrayList(categoriaDao.findAllCategoria());                
     }
@@ -49,24 +63,40 @@ public class CategoriaController implements Initializable {
         colDescripcion.setCellValueFactory(cellData->cellData.getValue().descripcion());
     }
     public void nuevo(){
-        txtDescripcion.setDisable(false);
+        txtDescripcion.setEditable(true);
         btnNuevo.setDisable(true);
         btnGuardar.setDisable(false);
         btnCancelar.setDisable(false);
         btnEliminar.setDisable(true);
+        btnEditar.setDisable(false);
+        accion = ACCIONES.NUEVO;
     }
 
     public void guardar(){
         try {
-            Categoria categoria = new Categoria();
-            categoria.setDescripcion(txtDescripcion.getText());
-            categoriaDao.saveCategoria(categoria);
-            listaCategorias.add(categoria);
+            
+            switch(accion){
+                
+                case NUEVO:
+                    Categoria categoria = new Categoria();
+                    categoria.setDescripcion(txtDescripcion.getText());
+                    categoriaDao.saveCategoria(categoria);
+                    listaCategorias.add(categoria);
+                    break;
+                    
+                case EDITAR:
+                    elementoSeleccionado.setDescripcion(txtDescripcion.getText());
+                    categoriaDao.saveCategoria(elementoSeleccionado);
+                    listaCategorias.set(tblCategorias.getSelectionModel().getSelectedIndex(), elementoSeleccionado);                    
+            }
+                                   
+            txtDescripcion.setText("");
             txtDescripcion.setDisable(true);
             btnNuevo.setDisable(false);
             btnGuardar.setDisable(true);
             btnCancelar.setDisable(true);
             btnEliminar.setDisable(false);
+            btnEditar.setDisable(false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,6 +120,24 @@ public class CategoriaController implements Initializable {
         }else{
             JOptionPane.showMessageDialog(null,"Debe seleccionar un elemento");
         }
+    }
+    
+    public void modificar(){
+        
+        if(tblCategorias.getSelectionModel().getSelectedItem()!= null){
+            
+            txtDescripcion.setEditable(true);
+            btnNuevo.setDisable(true);
+            btnEliminar.setDisable(true);
+            btnEditar.setDisable(true);
+            btnGuardar.setDisable(false);
+            btnCancelar.setDisable(false);
+            accion = ACCIONES.EDITAR;
+            
+        }else{
+            JOptionPane.showConfirmDialog(null, "Debe seleccionar un elemento");
+        }
+        
     }
     
 }
