@@ -37,7 +37,6 @@ public class CategoriaController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //categoriaDao.findAllCategoria();
         getCategorias();       
         enlazarDatos();
         enlazarColumnas();

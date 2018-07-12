@@ -73,5 +73,10 @@ public class Rol implements Serializable{
     public void setUsuario(Set<Usuario> usuario){
         this.usuario = usuario;
     }
+
+    @Override
+    public String toString() {
+        return codigoRol.get() + ")" + descripcion.get();
+    }
     
 }

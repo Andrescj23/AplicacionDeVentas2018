@@ -2,6 +2,8 @@ package com.aplicacionventas2018.core.sistema;
 
 import com.aplicacionventas2018.core.controller.CategoriaController;
 import com.aplicacionventas2018.core.controller.ProductoController;
+import com.aplicacionventas2018.core.controller.RolController;
+import com.aplicacionventas2018.core.controller.UsuarioController;
 import java.io.IOException;
 import java.io.InputStream;
 import javafx.application.Application;
@@ -23,7 +25,9 @@ public class Principal extends Application {
 
        //mostrarHelloWorld();
         //mostrarCategoria();
-        mostrarProducto();
+        //mostrarProducto();
+        mostrarUsuario();
+        //mostrarRol();
         this.escenarioPrincipal.setTitle("Sistema Ventas");
         this.escenarioPrincipal.show();
     }
@@ -45,6 +49,23 @@ public class Principal extends Application {
         }
         
     }
+    
+    private void mostrarUsuario() {
+        try {
+            UsuarioController usuarioController = (UsuarioController)
+                    cambiarEscena("UsuarioView.fxml", 600, 400);
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    private void mostrarRol() {
+        try {
+             RolController rolController = (RolController)
+                cambiarEscena("RolView.fxml", 600, 400);
+        } catch (Exception e) {
+        }
+    }    
 
     
      public static void main(String[] args) {
@@ -63,8 +84,5 @@ public class Principal extends Application {
         resultado = (Initializable) cargadorFXML.getController();
         return resultado;
     }
-
-    
-   
-
+       
 }

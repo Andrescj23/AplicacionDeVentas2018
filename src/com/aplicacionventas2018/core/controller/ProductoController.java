@@ -46,7 +46,6 @@ public class ProductoController implements Initializable{
 
     @FXML private ObservableList<Producto> listaProductos;
     @FXML private ObservableList<Categoria> listaCategorias;
-    @FXML private ObservableList<String> listaDescripciones;
     
     private ACCIONES accion;
     private Producto elementoSeleccionado;
@@ -105,7 +104,7 @@ public class ProductoController implements Initializable{
     
     public void nuevo(){
         
-        txtDescripcion.setEditable(true);
+        txtDescripcion.setEditable(false);
         txtDescripcion.setText("");
         txtExistencias.setEditable(true);
         txtExistencias.setText("");
@@ -159,6 +158,7 @@ public class ProductoController implements Initializable{
             
             btnEliminar.setDisable(false);
             btnNuevo.setDisable(false);
+            btnEditar.setDisable(false);
             txtDescripcion.setText("");
             txtDescripcion.setEditable(false);
             txtExistencias.setText("");
@@ -190,11 +190,13 @@ public class ProductoController implements Initializable{
         txtPrecioUnitario.setEditable(false);
         txtPrecio.setText("");
         txtPrecio.setEditable(false);
-        choiceCategorias.setDisable(false);
+        choiceCategorias.getSelectionModel().clearSelection();
+        choiceCategorias.setDisable(true);
         btnNuevo.setDisable(false);
         btnGuardar.setDisable(true);
         btnCancelar.setDisable(true);
         btnEliminar.setDisable(false);
+        btnEditar.setDisable(false);
         
     }
     

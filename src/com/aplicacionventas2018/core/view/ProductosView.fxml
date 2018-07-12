@@ -33,7 +33,7 @@
       <Label layoutX="302.0" layoutY="57.0" text="Precio Unitario" />
       <TextField fx:id="txtPrecioUnitario" editable="false" layoutX="409.0" layoutY="46.0" prefHeight="25.0" prefWidth="128.0" />
       <Label layoutX="303.0" layoutY="94.0" text="Categorias" />
-      <ChoiceBox fx:id="choiceCategorias" layoutX="409.0" layoutY="91.0" prefHeight="25.0" prefWidth="128.0" />
+      <ChoiceBox fx:id="choiceCategorias" disable="true" layoutX="409.0" layoutY="91.0" prefHeight="25.0" prefWidth="128.0" />
       <Button fx:id="btnEditar" layoutX="384.0" layoutY="361.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
    </children>
 </AnchorPane>
