@@ -4,7 +4,7 @@
 .label {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: gray;
+    -fx-text-fill: white;
     -fx-opacity: 0.6;
 }   
 
@@ -60,9 +60,13 @@
     -fx-background-color: derive(-fx-focus-color,30%);
 }
 
-choiseBox{
--fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: black;
-    -fx-opacity: 0.6;
+.choice-box .context-menu { 
+    -fx-background-color: black; 
 }
+.choice-box .menu-item > .label {
+    -fx-text-fill: white; 
+}
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: black; 
+}
+.choice-box > .label { -fx-text-fill: black; }

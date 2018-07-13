@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@Estilos.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aplicacionventas2018.core.controller.RolController">
+   <children>
+      <TableView fx:id="tblRol" layoutX="15.0" layoutY="124.0" onKeyReleased="#seleccionarElementos" onMouseClicked="#seleccionarElementos" prefHeight="220.0" prefWidth="570.0">
+        <columns>
+          <TableColumn fx:id="colCodigoRol" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="colRol" prefWidth="490.0" text="Descripcion Rol" />
+        </columns>
+      </TableView>
+      <Label layoutX="133.0" layoutY="53.0" text="Descripcion Rol" />
+      <TextField fx:id="txtDescripcion" editable="false" layoutX="247.0" layoutY="50.0" prefHeight="25.0" prefWidth="220.0" />
+      <Button fx:id="btnNuevo" layoutX="15.0" layoutY="358.0" mnemonicParsing="false" onAction="#nuevo" text="Nuevo" />
+      <Button fx:id="btnGuardar" disable="true" layoutX="101.0" layoutY="358.0" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+      <Button fx:id="btnCancelar" disable="true" layoutX="195.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Button fx:id="btnEliminar" layoutX="291.0" layoutY="358.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+      <Button fx:id="btnEditar" layoutX="382.0" layoutY="358.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+   </children>
+</AnchorPane>

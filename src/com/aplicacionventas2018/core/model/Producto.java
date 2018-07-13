@@ -28,9 +28,9 @@ import javax.persistence.Table;
 public class Producto implements Serializable {
 
     
-    private final LongProperty codigoProducto;
+    private final IntegerProperty codigoProducto;
     private StringProperty descripcion;
-    private IntegerProperty precio;
+    private DoubleProperty precio;
     private DoubleProperty precioUnitario;
     private IntegerProperty existencias;
 
@@ -38,18 +38,18 @@ public class Producto implements Serializable {
 
     public Producto() {
         
-        this.codigoProducto = new SimpleLongProperty();
+        this.codigoProducto = new SimpleIntegerProperty();
         this.descripcion = new SimpleStringProperty();
-        this.precio = new SimpleIntegerProperty();
+        this.precio = new SimpleDoubleProperty();
         this.precioUnitario = new SimpleDoubleProperty();
         this.existencias = new SimpleIntegerProperty();
         
     }
 
-    public Producto(Long codigoProducto, String descripcion,int precio,double precionUnitario,int existencias, Categoria categoria) {
-        this.codigoProducto = new SimpleLongProperty(codigoProducto);
+    public Producto(int codigoProducto, String descripcion,int precio,double precionUnitario,int existencias, Categoria categoria) {
+        this.codigoProducto = new SimpleIntegerProperty(codigoProducto);
         this.descripcion = new SimpleStringProperty (descripcion);
-        this.precio = new SimpleIntegerProperty(precio);
+        this.precio = new SimpleDoubleProperty(precio);
         this.precioUnitario = new SimpleDoubleProperty();
         this.existencias = new SimpleIntegerProperty();
         this.categoria = categoria;
@@ -59,15 +59,15 @@ public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo_producto")
-    public Long getCodigoProducto() {
+    public int getCodigoProducto() {
         return codigoProducto.get();
     }
 
-    public void setCodigoProducto(Long codigoProducto) {
+    public void setCodigoProducto(int codigoProducto) {
         this.codigoProducto.set(codigoProducto);
     }
     
-    public LongProperty codigoProducto(){
+    public IntegerProperty codigoProducto(){
         return codigoProducto;
     }
      
@@ -84,16 +84,16 @@ public class Producto implements Serializable {
         return descripcion;
     }
     
-    @Column(name = "precio")
-    public int getPrecio(){
+    @Column(name = "precio_por_mayor")
+    public double getPrecio(){
         return precio.get();
     }
     
-    public void setPrecio(int precio){
+    public void setPrecio(double precio){
         this.precio.set(precio);
     }
     
-    public IntegerProperty precio(){
+    public DoubleProperty precio(){
         return precio;
     }
     

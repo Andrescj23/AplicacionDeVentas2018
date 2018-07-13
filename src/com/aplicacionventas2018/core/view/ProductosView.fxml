@@ -12,27 +12,28 @@
    <children>
       <Label layoutX="64.0" layoutY="19.0" text="Descripcion" />
       <Label layoutX="64.0" layoutY="51.0" text="Precio" />
-      <TableView fx:id="tblProducto" layoutX="11.0" layoutY="133.0" prefHeight="210.0" prefWidth="578.0">
+      <TableView fx:id="tblProducto" layoutX="11.0" layoutY="133.0" onKeyReleased="#seleccionarElemento" onMouseClicked="#seleccionarElemento" prefHeight="210.0" prefWidth="578.0">
          <columns>
             <TableColumn fx:id="colCodigoProducto" prefWidth="60.0" text="CODIGO" />
             <TableColumn fx:id="colDescripcion" prefWidth="125.0" text="DESCRIPCION" />
-            <TableColumn fx:id="colPrecio" prefWidth="67.0" text="PRECIO" />
+            <TableColumn fx:id="colPrecio" prefWidth="67.0" text="PRECIO MAYOR" />
             <TableColumn fx:id="colCategoria" prefWidth="99.0" text="CATEGORIA" />
             <TableColumn fx:id="colPrecioUnidad" prefWidth="131.0" text="PRECIO UNIDAD" />
             <TableColumn fx:id="colExistencias" prefWidth="95.0" text="EXISTENCIAS" />
          </columns>
       </TableView>
-      <TextField fx:id="txtDescripcion" disable="true" layoutX="145.0" layoutY="14.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField fx:id="txtDescripcion" editable="false" layoutX="145.0" layoutY="14.0" prefHeight="25.0" prefWidth="392.0" />
       <Button fx:id="btnNuevo" layoutX="15.0" layoutY="361.0" mnemonicParsing="false" onAction="#nuevo" text="Nuevo" />
       <Button fx:id="btnGuardar" disable="true" layoutX="102.0" layoutY="361.0" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
       <Button fx:id="btnCancelar" disable="true" layoutX="196.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
       <Button fx:id="btnEliminar" layoutX="292.0" layoutY="361.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
-      <TextField fx:id="txtPrecio" disable="true" layoutX="145.0" layoutY="46.0" prefHeight="25.0" prefWidth="115.0" />
+      <TextField fx:id="txtPrecio" editable="false" layoutX="145.0" layoutY="46.0" prefHeight="25.0" prefWidth="115.0" />
       <Label layoutX="64.0" layoutY="88.0" text="Existencias" />
-      <TextField fx:id="txtExistencias" disable="true" layoutX="145.0" layoutY="83.0" prefHeight="25.0" prefWidth="115.0" />
+      <TextField fx:id="txtExistencias" editable="false" layoutX="145.0" layoutY="83.0" prefHeight="25.0" prefWidth="115.0" />
       <Label layoutX="302.0" layoutY="57.0" text="Precio Unitario" />
-      <TextField fx:id="txtPrecioUnitario" disable="true" layoutX="409.0" layoutY="46.0" prefHeight="25.0" prefWidth="128.0" />
+      <TextField fx:id="txtPrecioUnitario" editable="false" layoutX="409.0" layoutY="46.0" prefHeight="25.0" prefWidth="128.0" />
       <Label layoutX="303.0" layoutY="94.0" text="Categorias" />
       <ChoiceBox fx:id="choiceCategorias" disable="true" layoutX="409.0" layoutY="91.0" prefHeight="25.0" prefWidth="128.0" />
+      <Button fx:id="btnEditar" layoutX="384.0" layoutY="361.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
    </children>
 </AnchorPane>

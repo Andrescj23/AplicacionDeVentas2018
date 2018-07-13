@@ -5,9 +5,16 @@
         <group>
             <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/controller/CategoriaController.java</file>
             <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/controller/ProductoController.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/dao/UsuarioDaoImpl.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/dao/RolDaoImpl.java</file>
             <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/model/Producto.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/model/Usuario.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/dao/ProductoDaoImpl.java</file>
             <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/model/Categoria.java</file>
             <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/sistema/Principal.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/dao/CategoriaDaoImpl.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/db/Conexion.java</file>
+            <file>file:/home/desarrollo/NetBeansProjects/AplicacionVentas2018/src/com/aplicacionventas2018/core/dao/RolDao.java</file>
         </group>
     </open-files>
 </project-private>
